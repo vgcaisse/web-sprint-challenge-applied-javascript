@@ -19,17 +19,17 @@ const Header = (title, date, temp) => {
   const titled = document.createElement('h1');
   const temped = document.createElement('span');
 
-  // date.textContent = obj.date;
-  // title.textContent = obj.title;
-  // temp.textContent = obj.temp;
+  dated.textContent = dated.date;
+  titled.textContent = titled.title;
+  temped.textContent = temped.temp;
 
-  header.appendChild(date);  
-  header.appendChild(title);
-  header.appendChild(temp);
+  header.appendChild(dated);  
+  header.appendChild(titled);
+  header.appendChild(temped);
   
   header.classList.add('header');
-  date.classList.add('date');
-  temp.classList.add('temp');
+  dated.classList.add('date');
+  temped.classList.add('temp');
 
   return header;
 }
@@ -43,11 +43,11 @@ const headerAppender = (header) => {
   //
   axios.get(header)
   .then(resp => {
-    // document.querySelector('.header').appendChild(Header(resp.data));
-    console.log(resp);
+    document.querySelector('.header-container').appendChild(Header(resp.data));
+    // console.log(resp);
   })
   .catch(err=> console.error(err));
   
 }
 
-export { Header, headerAppender }
+export { Header, headerAppender };
