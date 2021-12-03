@@ -69,7 +69,7 @@ Demonstrate your understanding of this week's concepts by answering the followin
     - An event listener listens reacts to the event and executes a function based on the event that it was listening to i.e a click, mouse scroll, or loading the page.
 
 4. Why would we convert a NodeList into an Array?
-    -
+    - So that we can iterate through them with forEach() loops.
 
 5. What is a component?
     - Components are functions that return HTML elements.
