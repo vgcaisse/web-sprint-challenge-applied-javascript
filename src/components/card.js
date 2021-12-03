@@ -24,20 +24,20 @@ const Card = (article) => {
   const author = document.createElement('div');
   const imgCont = document.createElement('div');
   const img = document.createElement('img');
-  const autherName = document.createElement('span');
+  const authorName = document.createElement('span');
 
   img.src = article.authorPhoto;
   img.alt = 'Picture of author';
   headline.textContent = article.headline;
   author.textContent = 'Author: ';
   imgCont.textContent = '';
-  autherName.textContent = article.autherName;
+  authorName.textContent = article.authorName;
 
   cardCont.appendChild(headline);
   cardCont.appendChild(author);
   author.appendChild(imgCont);
   imgCont.appendChild(img);
-  author.appendChild(autherName);
+  author.appendChild(authorName);
 
   cardCont.classList.add('card');
   headline.classList.add('headline');
@@ -59,7 +59,7 @@ const cardAppender = (articles) => {
 
   axios.get(`http://localhost:5000/api/${articles}`)
   .then(resp => {
-    document.querySelector('.card').appendChild(Card(resp.data));
+    document.querySelector('.cards-container').appendChild(Card(resp.data));
     // console.log(resp);
   })
   .catch(err=> console.error(err));

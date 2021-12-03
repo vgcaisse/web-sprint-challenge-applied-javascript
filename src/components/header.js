@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const Header = (title, date, temp) => {
+const Header = (obj) => {
   // TASK 1
   // ---------------------
   // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
@@ -15,21 +15,21 @@ const Header = (title, date, temp) => {
   //
 
   const header = document.createElement('div');
-  const dated = document.createElement('span');
-  const titled = document.createElement('h1');
-  const temped = document.createElement('span');
+  const date = document.createElement('span');
+  const title = document.createElement('h1');
+  const temp = document.createElement('span');
 
-  dated.textContent = dated.date;
-  titled.textContent = titled.title;
-  temped.textContent = temped.temp;
+  date.textContent = obj.date;
+  title.textContent = obj.title;
+  temp.textContent = obj.temp;
 
-  header.appendChild(dated);  
-  header.appendChild(titled);
-  header.appendChild(temped);
+  header.appendChild(date);  
+  header.appendChild(title);
+  header.appendChild(temp);
   
   header.classList.add('header');
-  dated.classList.add('date');
-  temped.classList.add('temp');
+  date.classList.add('date');
+  temp.classList.add('temp');
 
   return header;
 }
@@ -41,9 +41,9 @@ const headerAppender = (header) => {
   // It should create a header using the Header component above, passing arguments of your choosing.
   // It should append the header to the element in the DOM that matches the given selector.
   //
-  axios.get(header)
+  axios.get()
   .then(resp => {
-    document.querySelector('.header-container').appendChild(Header(resp.data));
+    document.querySelector('.header-container').appendChild(Header(resp.obj));
     // console.log(resp);
   })
   .catch(err=> console.error(err));
